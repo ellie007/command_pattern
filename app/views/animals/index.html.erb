@@ -1,0 +1,28 @@
+<article class="container">
+<div class="col-xs-12">
+  <%= link_to 'Add an Animal', new_animal_path, class: 'btn btn-primary' %>
+  <br/><br/>
+
+  <h3>All Animals</h3>
+
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @animals.each do |animal| %>
+        <tr>
+          <td data-field="animal.id"><%= animal.id %></td>
+          <td data-field="animal.name"><%= animal.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+</article>
+
