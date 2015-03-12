@@ -4,8 +4,9 @@ module Animal
     class AnimalRepository
 
       def create(params)
-        record = user.create(params)
-        transform(record)
+        record = Animal.create(params)
+        animal = transform(record)
+        animal.save
       end
 
       def transform(record)

@@ -4,7 +4,7 @@ require 'animal/context/create_animal'
 module Animal
   module AnimalFactory
 
-    def self.create_animal_factory
+    def self.create_animal
       Context::CreateAnimal.new(animal_repository)
     end
 

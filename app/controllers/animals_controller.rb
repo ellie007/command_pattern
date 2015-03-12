@@ -4,8 +4,11 @@ class AnimalsController < ApplicationController
     @animals = Animal.all
   end
 
+  def new
+    @context = AnimalFactory.create_animal
+  end
+
   def create
-    context = AnimalFactory.create_animal_factory
     @animal = context.execute(params)
   end
 
