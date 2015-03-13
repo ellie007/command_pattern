@@ -1,15 +1,18 @@
+require 'animal/animal_factory'
+
 class AnimalsController < ApplicationController
 
   def index
-    @animals = Animal.all
+    context = AnimalLibrary::AnimalFactory.find_all_animals
+    @animals = context.execute
   end
 
   def new
-    @context = AnimalFactory.create_animal
   end
 
   def create
-    @animal = context.execute(params)
+    @animal_context = AnimalLibrary::AnimalFactory.create_animal
+    @animal = @animal_context.execute(params)
   end
 
 end

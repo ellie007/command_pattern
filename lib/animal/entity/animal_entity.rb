@@ -1,18 +1,15 @@
-module Animal
+module AnimalLibrary
   module Entity
-    class AnimalEntity
+    AnimalEntity = Struct.new(
+      :id,
+      :name
+    ) do
 
-      def initialize(attrs = {})
-        transform(attrs)
-      end
-
-      def transform(attrs)
-        animal = Struct.new(:id, :name)
-        animal.id = attrs[:id]
-        anima.name = attrs[:name]
-        animal
+      def initialize(fields)
+        super(*fields.values_at(*members))
       end
 
     end
   end
 end
+

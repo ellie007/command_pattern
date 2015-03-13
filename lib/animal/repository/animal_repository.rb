@@ -1,16 +1,25 @@
-module Animal
-module Animal
+require 'animal/entity/animal_entity'
+
+module AnimalLibrary
   module Repository
     class AnimalRepository
 
       def create(params)
         record = Animal.create(params)
         animal = transform(record)
-        animal.save
+      end
+
+      def find_all_animals
+        Animal.all.map { |animal|
+          transform(animal)
+        }
       end
 
       def transform(record)
-        AnimalEntity.new(record.attributes)
+        Entity::AnimalEntity.new(
+        id: record.id,
+        name: record.name
+        )
       end
 
     end

@@ -1,14 +1,15 @@
 module AnimalLibrary
   module Context
-    class CreateAnimal
+    class FindAllAnimals
 
       def initialize(animal_repository)
         @animal_repository = animal_repository
       end
 
-      def execute(params)
-        @animal_repository.create(params)
+      def execute
+        @animal_repository.find_all_animals
       end
+
 
     end
   end
