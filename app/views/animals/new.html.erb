@@ -1,4 +1,10 @@
-<%= render :partial => 'new_animal_form', locals: {
-  method: :post, 
-  path: animals_path
-} %>
+<h1>New Animal</h1>
+
+<%= form_tag(@animal, method: 'post') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name %>
+  </div>
+
+<% end %>

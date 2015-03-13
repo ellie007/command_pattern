@@ -8,6 +8,7 @@ class AnimalsController < ApplicationController
   end
 
   def new
+    @animal = AnimalLibrary::AnimalFactory.entity
   end
 
   def create

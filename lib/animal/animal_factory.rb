@@ -14,6 +14,10 @@ module AnimalLibrary
       AnimalLibrary::Context::FindAllAnimals.new(animal_repository)
     end
 
+    def self.entity(args = {})
+      AnimalLibrary::Entity::AnimalEntity.new(args)
+    end
+
     private
 
     def self.animal_repository
