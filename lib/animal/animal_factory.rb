@@ -17,7 +17,11 @@ module AnimalLibrary
     private
 
     def self.animal_repository
-      AnimalLibrary::Repository::AnimalRepository.new
+      AnimalLibrary::Repository::AnimalRepository.new(animal_driver)
+    end
+
+    def self.animal_driver
+      ::Animal
     end
 
   end
