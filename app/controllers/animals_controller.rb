@@ -1,4 +1,5 @@
 require 'animal/animal_factory'
+require 'animal/entity/animal_entity'
 
 class AnimalsController < ApplicationController
 
@@ -8,7 +9,7 @@ class AnimalsController < ApplicationController
   end
 
   def new
-    @animal = AnimalLibrary::AnimalFactory.entity
+    @animal = AnimalLibrary::Entity::AnimalEntity.new(args = {})
   end
 
   def create
