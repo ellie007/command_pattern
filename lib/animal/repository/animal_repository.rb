@@ -6,7 +6,7 @@ module AnimalLibrary
 
       def create(params)
         record = Animal.create(params)
-        animal = transform(record)
+        transform(record)
       end
 
       def find_all_animals
