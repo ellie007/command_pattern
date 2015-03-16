@@ -17,8 +17,8 @@ module AnimalLibrary
 
       def transform(record)
         Entity::AnimalEntity.new(
-        id: record.id,
-        name: record.name
+          id: record.id,
+          name: record.name
         )
       end
 
