@@ -13,8 +13,8 @@ class AnimalsController < ApplicationController
   end
 
   def create
-    @animal_context = AnimalLibrary::AnimalFactory.create_animal
-    @animal = @animal_context.execute(animal_params)
+    context = AnimalLibrary::AnimalFactory.create_animal
+    context.execute(animal_params)
     redirect_to animals_path
   end
 
