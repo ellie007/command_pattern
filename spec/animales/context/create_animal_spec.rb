@@ -5,7 +5,7 @@ describe Animales::Context::CreateAnimal do
   let(:animal_repository) { double(:animal_repository, create: animal) }
   subject { described_class.new(animal_repository) }
 
-  it 'creates an animal' do
+  it 'executes a #CreateAnimal context' do
     expect(subject.execute(name: 'sample')).to eq(animal)
   end
 
