@@ -1,4 +1,4 @@
-module AnimalLibrary
+module Animales
   module Context
     class FindAllAnimals
 
@@ -9,7 +9,6 @@ module AnimalLibrary
       def execute
         @animal_repository.find_all_animals
       end
-
 
     end
   end

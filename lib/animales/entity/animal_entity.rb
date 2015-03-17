@@ -1,4 +1,4 @@
-module AnimalLibrary
+module Animales
   module Entity
     AnimalEntity = Struct.new(
       :id,

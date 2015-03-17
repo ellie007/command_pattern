@@ -1,6 +1,6 @@
-require 'animal/context/create_animal'
+require 'animales/context/create_animal'
 
-describe AnimalLibrary::Context::CreateAnimal do
+describe Animales::Context::CreateAnimal do
   let(:animal) { double(:animal) }
   let(:animal_repository) { double(:animal_repository, create: animal) }
   subject { described_class.new(animal_repository) }

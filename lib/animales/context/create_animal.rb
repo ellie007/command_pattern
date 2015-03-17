@@ -1,4 +1,4 @@
-module AnimalLibrary
+module Animales
   module Context
     class CreateAnimal
 

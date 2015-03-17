@@ -1,6 +1,6 @@
-require 'animal/entity/animal_entity'
+require 'animales/entity/animal_entity'
 
-module AnimalLibrary
+module Animales
   module Repository
     class AnimalRepository
 
