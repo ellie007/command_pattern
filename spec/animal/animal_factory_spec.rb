@@ -8,4 +8,7 @@ describe AnimalLibrary::AnimalFactory do
     expect(subject.create_animal).to be_a(AnimalLibrary::Context::CreateAnimal)
   end
 
+  it 'finds/returns all animals' do
+    expect(subject.find_all_animals).to be_a(AnimalLibrary::Context::FindAllAnimals)
+  end
 end
