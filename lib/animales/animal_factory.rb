@@ -1,6 +1,5 @@
 require './app/models/animal'
-require 'animales/context/create_animal'
-require 'animales/context/find_all_animals'
+Dir["./lib/animales/context/*"].each {|file| require file }
 require 'animales/repository/animal_repository'
 
 module Animales
@@ -12,6 +11,10 @@ module Animales
 
     def self.find_all_animals
       Animales::Context::FindAllAnimals.new(animal_repository)
+    end
+
+    def self.find_by_name
+      Animales::Context::FindByName.new(animal_repository)
     end
 
     private

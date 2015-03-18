@@ -25,8 +25,8 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="lib-animales-animal_factory_rb.html">lib/animales/animal_factory.rb</a></td>
-            <td class='right_align'><tt>28</tt></td>
-            <td class='right_align'><tt>15</tt></td>
+            <td class='right_align'><tt>31</tt></td>
+            <td class='right_align'><tt>16</tt></td>
             <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
       <div class="percent_graph">
         <div class="covered" style="width:100px"></div>
@@ -54,90 +54,99 @@
           <td><pre><a name="line2">2</a> require './app/models/animal'</pre></td>
         </tr>
         <tr class="marked">
-          <td><pre><a name="line3">3</a> require 'animales/context/create_animal'</pre></td>
+          <td><pre><a name="line3">3</a> Dir[&quot;./lib/animales/context/*&quot;].each {|file| require file }</pre></td>
         </tr>
         <tr class="marked">
-          <td><pre><a name="line4">4</a> require 'animales/context/find_all_animals'</pre></td>
+          <td><pre><a name="line4">4</a> require 'animales/repository/animal_repository'</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line5">5</a> </pre></td>
         </tr>
         <tr class="marked">
-          <td><pre><a name="line5">5</a> require 'animales/repository/animal_repository'</pre></td>
-        </tr>
-        <tr class="inferred">
-          <td><pre><a name="line6">6</a> </pre></td>
+          <td><pre><a name="line6">6</a> module Animales</pre></td>
         </tr>
         <tr class="marked">
-          <td><pre><a name="line7">7</a> module Animales</pre></td>
+          <td><pre><a name="line7">7</a>   module AnimalFactory</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line8">8</a> </pre></td>
         </tr>
         <tr class="marked">
-          <td><pre><a name="line8">8</a>   module AnimalFactory</pre></td>
-        </tr>
-        <tr class="inferred">
-          <td><pre><a name="line9">9</a> </pre></td>
+          <td><pre><a name="line9">9</a>     def self.create_animal</pre></td>
         </tr>
         <tr class="marked">
-          <td><pre><a name="line10">10</a>     def self.create_animal</pre></td>
+          <td><pre><a name="line10">10</a>       Animales::Context::CreateAnimal.new(animal_repository)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line11">11</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line12">12</a> </pre></td>
         </tr>
         <tr class="marked">
-          <td><pre><a name="line11">11</a>       Animales::Context::CreateAnimal.new(animal_repository)</pre></td>
-        </tr>
-        <tr class="inferred">
-          <td><pre><a name="line12">12</a>     end</pre></td>
-        </tr>
-        <tr class="inferred">
-          <td><pre><a name="line13">13</a> </pre></td>
+          <td><pre><a name="line13">13</a>     def self.find_all_animals</pre></td>
         </tr>
         <tr class="marked">
-          <td><pre><a name="line14">14</a>     def self.find_all_animals</pre></td>
+          <td><pre><a name="line14">14</a>       Animales::Context::FindAllAnimals.new(animal_repository)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line15">15</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line16">16</a> </pre></td>
         </tr>
         <tr class="marked">
-          <td><pre><a name="line15">15</a>       Animales::Context::FindAllAnimals.new(animal_repository)</pre></td>
-        </tr>
-        <tr class="inferred">
-          <td><pre><a name="line16">16</a>     end</pre></td>
-        </tr>
-        <tr class="inferred">
-          <td><pre><a name="line17">17</a> </pre></td>
+          <td><pre><a name="line17">17</a>     def self.find_by_name</pre></td>
         </tr>
         <tr class="marked">
-          <td><pre><a name="line18">18</a>     private</pre></td>
+          <td><pre><a name="line18">18</a>       Animales::Context::FindByName.new(animal_repository)</pre></td>
         </tr>
         <tr class="inferred">
-          <td><pre><a name="line19">19</a> </pre></td>
+          <td><pre><a name="line19">19</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line20">20</a> </pre></td>
         </tr>
         <tr class="marked">
-          <td><pre><a name="line20">20</a>     def self.animal_repository</pre></td>
+          <td><pre><a name="line21">21</a>     private</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line22">22</a> </pre></td>
         </tr>
         <tr class="marked">
-          <td><pre><a name="line21">21</a>       Animales::Repository::AnimalRepository.new(animal_driver)</pre></td>
-        </tr>
-        <tr class="inferred">
-          <td><pre><a name="line22">22</a>     end</pre></td>
-        </tr>
-        <tr class="inferred">
-          <td><pre><a name="line23">23</a> </pre></td>
+          <td><pre><a name="line23">23</a>     def self.animal_repository</pre></td>
         </tr>
         <tr class="marked">
-          <td><pre><a name="line24">24</a>     def self.animal_driver</pre></td>
+          <td><pre><a name="line24">24</a>       Animales::Repository::AnimalRepository.new(animal_driver)</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line25">25</a>     end</pre></td>
+        </tr>
+        <tr class="inferred">
+          <td><pre><a name="line26">26</a> </pre></td>
         </tr>
         <tr class="marked">
-          <td><pre><a name="line25">25</a>       ::Animal</pre></td>
+          <td><pre><a name="line27">27</a>     def self.animal_driver</pre></td>
+        </tr>
+        <tr class="marked">
+          <td><pre><a name="line28">28</a>       ::Animal</pre></td>
         </tr>
         <tr class="inferred">
-          <td><pre><a name="line26">26</a>     end</pre></td>
+          <td><pre><a name="line29">29</a>     end</pre></td>
         </tr>
         <tr class="inferred">
-          <td><pre><a name="line27">27</a> </pre></td>
+          <td><pre><a name="line30">30</a> </pre></td>
         </tr>
         <tr class="inferred">
-          <td><pre><a name="line28">28</a>   end</pre></td>
+          <td><pre><a name="line31">31</a>   end</pre></td>
         </tr>
         <tr class="inferred">
-          <td><pre><a name="line29">29</a> end</pre></td>
+          <td><pre><a name="line32">32</a> end</pre></td>
         </tr>
       </tbody>
     </table>
 
-    <p>Generated on 2015-03-18 10:36:30 -0500 with <a href="https://github.com/fguillen/simplecov-rcov">SimpleCov-RCov 0.2.3</a></p>
+    <p>Generated on 2015-03-18 14:03:38 -0500 with <a href="https://github.com/fguillen/simplecov-rcov">SimpleCov-RCov 0.2.3</a></p>
 
   </body>
 </html>

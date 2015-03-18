@@ -19,8 +19,9 @@ module Animales
         }
       end
 
-      def find_by_name
-        db_driver
+      def find_by_name(name)
+        matches_of_names = db_driver.where(name: name)
+        matches_of_names.map { |animal| transform(animal) }
       end
 
       def transform(record)
