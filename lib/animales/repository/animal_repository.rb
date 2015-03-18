@@ -19,6 +19,10 @@ module Animales
         }
       end
 
+      def find_by_name
+        db_driver
+      end
+
       def transform(record)
         Entity::AnimalEntity.new(
           id: record.id,

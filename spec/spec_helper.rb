@@ -1,6 +1,14 @@
 require 'active_record'
 require 'yaml'
 
+require 'simplecov'
+require 'simplecov-rcov'
+SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+SimpleCov.coverage_dir 'reports/coverage'
+SimpleCov.start do
+  add_filter "/spec/"
+end
+
 connection_info = YAML.load_file("config/database.yml")["test"]
 ActiveRecord::Base.establish_connection(connection_info)
 
