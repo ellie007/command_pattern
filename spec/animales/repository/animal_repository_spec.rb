@@ -28,8 +28,8 @@ describe Animales::Repository::AnimalRepository do
     expect(subject.find_by_name("animal record").second).to eq(subject.transform(animal_record_2))
   end
 
-  xit '' do
-    p subject.transform
+  it 'transforms a record in to an #AnimalEntity' do
+    expect(subject.transform(animal_record_1)).to be_a(Animales::Entity::AnimalEntity)
   end
 
 end
