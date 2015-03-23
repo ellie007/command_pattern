@@ -1,6 +1,6 @@
-module Animales
+module Pets
   module Entity
-    AnimalEntity = Struct.new(
+    PetEntity = Struct.new(
       :id,
       :name
     ) do

@@ -1,8 +1,8 @@
-require 'animales/entity/animal_entity'
+require 'pets/entity/pet_entity'
 
-module Animales
+module Pets
   module Repository
-    class AnimalRepository
+    class PetRepository
 
       def initialize(db_driver)
         @db_driver = db_driver
@@ -13,19 +13,19 @@ module Animales
         transform(record)
       end
 
-      def find_all_animals
-        db_driver.all.map { |animal|
-          transform(animal)
+      def find_all_pets
+        db_driver.all.map { |pet|
+          transform(pet)
         }
       end
 
       def find_by_name(name)
         matches_of_names = db_driver.where(name: name)
-        matches_of_names.map { |animal| transform(animal) }
+        matches_of_names.map { |pet| transform(pet) }
       end
 
       def transform(record)
-        Entity::AnimalEntity.new(
+        Entity::PetEntity.new(
           id: record.id,
           name: record.name
         )
