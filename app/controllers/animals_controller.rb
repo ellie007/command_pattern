@@ -1,19 +1,19 @@
-require 'animales/animal_factory'
-require 'animales/entity/animal_entity'
+require 'pets/pet_factory'
+require 'pets/entity/pet_entity'
 
-class AnimalsController < ApplicationController
+class PetsController < ApplicationController
 
   def index
-    context = Animales::AnimalFactory.find_all_animals
+    context = Pets::PetFactory.find_all_animals
     @animals = context.execute
   end
 
   def new
-    @animal = Animales::Entity::AnimalEntity.new(args = {})
+    @animal = Pets::Entity::PetEntity.new(args = {})
   end
 
   def create
-    context = Animales::AnimalFactory.create_animal
+    context = Pets::PetFactory.create_animal
     context.execute(animal_params)
     redirect_to animals_path
   end
