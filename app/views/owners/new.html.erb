@@ -1,0 +1,14 @@
+<h1>New Owner</h1>
+
+<%= form_tag(owner_path, method: 'post') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name %>
+  </div>
+
+  <br>
+
+   <div><%= submit_tag 'Save' %></div>
+
+<% end %>

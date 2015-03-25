@@ -1,7 +1,7 @@
 class OwnersController < ApplicationController
 
   def index
-    context = Owners::OwnerFactory.find_all_pets
+    context = Owners::OwnerFactory.find_all_owners
     @owners = context.execute
   end
 
