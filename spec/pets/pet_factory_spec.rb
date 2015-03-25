@@ -16,3 +16,4 @@ describe Pets::PetFactory do
     expect(subject.find_by_name).to be_a(Pets::Context::FindByName)
   end
 end
+  
