@@ -2,8 +2,8 @@ require 'pets/entity/pet_entity'
 
 module Pets
   module Repository
+    class NotFoundError < Exception; end
     class PetRepository
-
       def initialize(db_driver)
         @db_driver = db_driver
       end
@@ -20,8 +20,13 @@ module Pets
       end
 
       def find_by_name(name)
-        matches_of_names = db_driver.where(name: name)
-        matches_of_names.map { |pet| transform(pet) }
+        begin
+          matches_of_names = db_driver.where(name: name)
+          raise NotFoundError.new if matches_of_names.empty?
+          matches_of_names.map { |pet| transform(pet) }
+        rescue NotFoundError.new => e
+          "Record with that name not found. Please try a different name."
+        end
       end
 
       def transform(record)
