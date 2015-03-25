@@ -25,7 +25,13 @@ describe Pets::Repository::PetRepository do
     allow(pet_driver).to receive(:where).and_return([pet_record_1, pet_record_2])
 
     expect(subject.find_by_name("pet record").first).to eq(subject.transform(pet_record_1))
-    expect(subject.find_by_name("pet record").second).to eq(subject.transform(pet_record_2))
+    expect(subject.find_by_name("pet record").last).to eq(subject.transform(pet_record_2))
+  end
+
+  it 'record by name does not exists' do
+    allow(pet_driver).to receive(:where).and_return([])
+
+    expect{subject.find_by_name("fake_name")}.to raise_error
   end
 
   it 'transforms a record in to an #PetEntity' do
