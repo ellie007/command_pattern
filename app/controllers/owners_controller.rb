@@ -1,3 +1,6 @@
+require 'owners/owner_factory'
+require 'owners/entity/onwer_entity'
+
 class OwnersController < ApplicationController
 
   def index
