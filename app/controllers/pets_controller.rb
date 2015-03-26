@@ -1,5 +1,4 @@
 require 'pets/pet_factory'
-require 'pets/entity/pet_entity'
 
 class PetsController < ApplicationController
 

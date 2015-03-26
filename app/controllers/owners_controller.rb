@@ -1,5 +1,4 @@
 require 'owners/owner_factory'
-require 'owners/entity/onwer_entity'
 
 class OwnersController < ApplicationController
 
@@ -17,5 +16,12 @@ class OwnersController < ApplicationController
     context.execute(owner_params)
     redirect_to owners_path
   end
+
+  private
+
+  def owner_params
+    params.permit(:name)
+  end
+
 
 end
