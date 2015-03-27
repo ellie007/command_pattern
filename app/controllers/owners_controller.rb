@@ -1,4 +1,5 @@
 require 'owners/owner_factory'
+require 'owners/entity/owner_entity'
 
 class OwnersController < ApplicationController
 
@@ -20,8 +21,7 @@ class OwnersController < ApplicationController
   private
 
   def owner_params
-    params.permit(:name)
+    params.permit(:name, pets_attributes: [:name, :owner_id, :type_of_animal])
   end
-
 
 end

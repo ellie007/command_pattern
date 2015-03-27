@@ -1,14 +1,22 @@
 <h1>New Owner</h1>
 
-<%= form_tag(owners_path, method: 'post') do %>
-
-  <div>
-    <%= label_tag :name %><br />
-    <%= text_field_tag :name %>
+<%= form_for @owner do |owner| %>
+  <div class="field">
+    <%= owner.label :name %>
+    <%= owner.text_field :name %>
   </div>
+    <%= owner.fields_for :pets do |pet| %>
+      <div class="field">
+        <%= pet.hidden_field :pet, :value => @owner.id %>
 
-  <br>
+        <%= pet.label :pet_name %>
+        <%= pet.text_field :name %>
 
-   <div><%= submit_tag 'Save' %></div>
-
+        <%= pet.label :type_of_animal %>
+        <%= pet.text_field :type_of_animal %>
+      </div>
+    <% end %>
+  <div class="form-actions">
+    <%= owner.button :submit %>
+  </div>
 <% end %>
