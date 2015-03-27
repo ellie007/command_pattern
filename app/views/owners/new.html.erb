@@ -1,22 +1,22 @@
 <h1>New Owner</h1>
 
-<%= form_for @owner do |owner| %>
-  <div class="field">
-    <%= owner.label :name %>
-    <%= owner.text_field :name %>
-  </div>
-    <%= owner.fields_for :pets do |pet| %>
-      <div class="field">
-        <%= pet.hidden_field :pet, :value => @owner.id %>
-
-        <%= pet.label :pet_name %>
-        <%= pet.text_field :name %>
-
-        <%= pet.label :type_of_animal %>
-        <%= pet.text_field :type_of_animal %>
-      </div>
-    <% end %>
-  <div class="form-actions">
-    <%= owner.button :submit %>
-  </div>
-<% end %>
+<form action='/owners' method="POST">
+  
+  <% 5.times do %>
+    <fieldset>
+      <li>
+      <label>Name</label>
+      <input name="owners[][Pet Name]"/>
+      </li>
+      <li>
+      <label>Difficulty</label>
+      <input name="owners[][difficulty]" />
+      </li>
+      <li>
+      <label>Players</label>
+      <input name="owners[][players]" />
+      </li>
+    </fieldset>
+  <% end %>
+  <input type="submit"/>
+</form>

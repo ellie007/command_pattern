@@ -13,8 +13,8 @@ class OwnersController < ApplicationController
   end
 
   def create
-    context = Owners::OwnerFactory.create_owner
-    context.execute(owner_params)
+    owner_context = Owners::OwnerFactory.create_owner
+    owner_context.execute(owner_params)
     redirect_to owners_path
   end
 
@@ -22,6 +22,7 @@ class OwnersController < ApplicationController
 
   def owner_params
     params.permit(:name, pets_attributes: [:name, :owner_id, :type_of_animal])
+    #params.require(:screenshot).permit(:title, :assets_attributes => [:filename, :id, :screenshot_id])
   end
 
 end
