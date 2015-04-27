@@ -1,9 +1,9 @@
 <article class="container">
 <div class="col-xs-12">
-  <%= link_to 'Add an Pet', new_pet_path, class: 'btn btn-primary' %>
+  <%= link_to 'Add an Owner', new_owner_path, class: 'btn btn-primary' %>
   <br/><br/>
 
-  <h3>All Pets</h3>
+  <h3>All Owners</h3>
 
   <table class="table table-hover table-bordered">
     <thead>
@@ -14,10 +14,10 @@
     </thead>
 
     <tbody>
-      <% @pets.each do |pet| %>
+      <% @owners.each do |owner| %>
         <tr>
-          <td data-field="pet.id"><%= pet.id %></td>
-          <td data-field="pet.name"><%= pet.name %></td>
+          <td data-field="owner.id"><%= owner.id %></td>
+          <td data-field="owner.name"><%= owner.name %></td>
         </tr>
       <% end %>
     </tbody>

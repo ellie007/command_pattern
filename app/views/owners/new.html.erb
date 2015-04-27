@@ -1,0 +1,22 @@
+<h1>New Owner</h1>
+
+<form action='/owners' method="POST">
+  
+  <% 5.times do %>
+    <fieldset>
+      <li>
+      <label>Name</label>
+      <input name="owners[][Pet Name]"/>
+      </li>
+      <li>
+      <label>Difficulty</label>
+      <input name="owners[][difficulty]" />
+      </li>
+      <li>
+      <label>Players</label>
+      <input name="owners[][players]" />
+      </li>
+    </fieldset>
+  <% end %>
+  <input type="submit"/>
+</form>
